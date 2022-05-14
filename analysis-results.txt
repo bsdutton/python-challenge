@@ -1,0 +1,6 @@
+Financial Analysis
+-----------------------------------
+Total Profits were $22564198.
+Average Profit Change was $-8311.11.
+Greatest Increase in Profits was $1862002 which occurred between Jul-16 and Aug-16.
+Greatest Decrease in Profits was $-1825558 which occurred between Jan-14 and Feb-14.
