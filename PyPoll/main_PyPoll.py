@@ -12,6 +12,9 @@ with open(csv_path) as csvfile:
     vote_reader = csv.DictReader(csvfile, delimiter=',')
     count_Candidate = {}
 
+# Count the the number of times each Candidate is duplicated in "Candidate" column
+
+
     for row in vote_reader:
         entry = dict(row)
         if entry['Candidate'] in count_Candidate:
@@ -19,15 +22,24 @@ with open(csv_path) as csvfile:
         else:
             count_Candidate[entry['Candidate']] = 1
 
+# while with the new dictionary, sort it using Lambda function and then apply reverse sort to show winner first
+
+
     sorted_Candidate = dict(sorted(count_Candidate.items(), key=lambda val:val[1], reverse=True))
- 
+
+# get list of dictionaries and find total votes
+
+
     vote_rows = []
     with open(csv_path) as csvfile:
         vote_reader = csv.DictReader(csvfile, delimiter=',')
         for row in vote_reader:
             vote_rows.append(row)
     total_votes = len(vote_rows)
-    
+
+ # use dictionary comprehension to specify winner from sorted dictionary
+
+
 winner = [key for key in sorted_Candidate.keys()][0]
 
 # f-strings for output to terminal
@@ -36,6 +48,9 @@ f"-----------------------------------\n"
 f"Total Votes: {total_votes}\n"
 f"-----------------------------------\n")
 print(message1)
+
+# use loop through dictionary to find percentages and round them to two decimal places
+
 
 for k, v in sorted_Candidate.items():
     percent = []
@@ -55,7 +70,7 @@ output_path = os.path.join('..', 'PyPoll/analysis', 'election_results.txt')
 
 # Write to the txt file:
 with open(output_path, 'w+') as txtfile:
-    # Initialize txt.writer
+    # Use print to output file so loop can be repeated for output into text file
     print(message1, file=txtfile)
     for k, v in sorted_Candidate.items():
         percent = []
