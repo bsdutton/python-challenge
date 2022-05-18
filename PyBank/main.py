@@ -48,6 +48,8 @@ f"Average Profit Change was ${round(average(subtotals),2)}.\n"
 f"Greatest Increase in Profits was ${max(subtot(profits))} which occurred between {months[78]} and {months[79]}.\n"
 f"Greatest Decrease in Profits was ${min(subtot(profits))} which occurred between {months[48]} and {months[49]}.")
 
+print(message)
+
 # Write the txt file:
 with open(output_path, 'w+') as txtfile:
     # Initialize txt.writer
